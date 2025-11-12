@@ -1,20 +1,13 @@
 // Filename: lib/commands/create.js
 // Purpose: Defines the 'create' command for project scaffolding with various configuration options
-// Author: Your Name (@yourhandle)
-// Date: 2024-01-11
+// Author: Etim Daniel Udeme (@Dannysnotepad)
+
 
 const { Command } = require('commander');
-const fs = require('fs-extra');
-const path = require('path');
-const execa = require('execa');
 const createProject = require('../core/createProject');
 const log = require('../../utils/logger');
 
-// =====================
-// Create Command Definition
-// =====================
 
-// Initialize the 'create' command
 const createCommand = new Command('create');
 
 // Configure command options and behavior

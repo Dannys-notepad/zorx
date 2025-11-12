@@ -1,7 +1,6 @@
 // Filename: utils/runCommand.js
 // Purpose: Utility function to execute shell commands as child processes with Promise wrapper
 // Author: Etim Daniel Udeme (@Dannysnotepad)
-// Date: 2024-01-11
 
 const { spawn } = require('child_process');
 const log = require('./logger');

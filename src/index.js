@@ -1,13 +1,12 @@
 // Filename: src/index.js
 // Purpose: Main CLI program configuration - initializes Commander and registers all commands
 // Author: Etim Daniel Udeme (@Dannysnotepad)
-// Date: 2024-01-11
 
 const { Command } = require('commander');
 const createCommand = require('./lib/commands/create');
 const helpCommand = require('./lib/commands/help');
 
-// Create new Commander instance
+
 const program = new Command();
 
 // Configure main program details
@@ -25,8 +24,8 @@ program.addHelpCommand(false);
 // Register custom help command
 program.addCommand(helpCommand);
 
-// Set up help option to use our custom help command
+// Set up help option to use my moo custom help command
 program.helpOption('-h, --help', 'Display help for command');
 
-// Export program instance
+
 module.exports = program;

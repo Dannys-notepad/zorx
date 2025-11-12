@@ -1,17 +1,7 @@
-// Filename: templates/projectTemplates.js (or appropriate path)
+// Filename: templates/fileContents.js (or appropriate path)
 // Purpose: Template generators for project files - provides dynamic content for scaffolded projects
-// Author: Your Name (@yourhandle)
-// Date: 2024-01-11
+// Author: Etim Daniel Udeme (@Dannysnotepad)
 
-// =====================
-// Project File Templates
-// =====================
-
-/**
- * Generates the main application file content with Express.js configuration
- * @param {string|number} port - The port number for the Express server
- * @returns {string} Complete app.js file content with configured port
- */
 function appFileContent(port) {
   return `
 const cors = require('cors');
@@ -36,10 +26,7 @@ app.listen(PORT, () => console.log('Server up and running on port ${port}'));
 `
 }
 
-/**
- * Generates the main route file content with basic endpoint
- * @returns {string} Route file content with root endpoint
- */
+
 function routeFileContent() {
   return `
 const router = require('express').Router();
@@ -52,10 +39,7 @@ module.exports = router;
   `
 }
 
-/**
- * Generates the main controller file content with API endpoint logic
- * @returns {string} Controller file content with main endpoint handler
- */
+
 function controllerFileContent() {
   return `
 
@@ -76,12 +60,7 @@ module.exports = {
   `
 }
 
-/**
- * Generates package.json content with project-specific configuration
- * @param {string} projectName - Name of the project for package.json
- * @returns {string} package.json file content with basic npm scripts
- */
- 
+
 function packageJsonFileContent(projectName) {
   return {
     name: projectName,
@@ -99,7 +78,7 @@ function packageJsonFileContent(projectName) {
   };
 }
 
-// Export all template functions for use in project scaffolding
+
 module.exports = {
   appFileContent,
   routeFileContent,

@@ -19,10 +19,10 @@ npm install --save-dev zorx-cli
 From Source
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Dannys-notepad/zorx.git
 cd zorx
-npm install
-npm link  # Makes zorx available globally
+pnpm install
+pnpm link  # Makes zorx available globally
 ```
 
 Usage
@@ -42,8 +42,12 @@ my-project/
 └── src/
     ├── controllers/
     │   └── main.controller.js
-    └── routes/
-        └── main.route.js
+    ├── routes/
+    │   └── main.route.js
+    ├── models/
+    ├── middlewares/
+    ├── utils/
+    └── configs/
 ```
 
 Command Options
@@ -53,11 +57,11 @@ zorx create <project-name> [options]
 ```
 
 Option Description Default
---force Override and recreate directory if it exists false
---ts Use TypeScript template false
+--force Override and recreate directory if exists false
 --port <port> Specify custom server port 3000
 --skip-install Skip dependency installation false
 --install <packages> Extra packages (comma separated) []
+--package-manager <pm> Specify package manager npm
 
 Examples
 
@@ -67,10 +71,10 @@ Basic project creation:
 zorx create my-api
 ```
 
-With TypeScript and custom port:
+With custom port:
 
 ```bash
-zorx create my-api --ts --port 8080
+zorx create my-api --port 8080
 ```
 
 Force recreate existing directory:
@@ -79,10 +83,10 @@ Force recreate existing directory:
 zorx create my-api --force
 ```
 
-Skip npm installation:
+Skip installation and use specific package manager:
 
 ```bash
-zorx create my-api --skip-install
+zorx create my-api --skip-install --package-manager pnpm
 ```
 
 Install additional packages:
@@ -91,77 +95,64 @@ Install additional packages:
 zorx create my-api --install "cors,helmet,morgan"
 ```
 
-Generated Project Structure
+Coming Soon Features
 
-```
-project-name/
-├── app.js                 # Main application file
-├── package.json          # Project configuration
-└── src/
-    ├── controllers/
-    │   └── main.controller.js  # Business logic
-    └── routes/
-        └── main.route.js       # Route definitions
-```
+· --ts - TypeScript template support
+· --template - Multiple project templates
+· --git - Automatic git repository initialization
 
 Key Features
 
-· Express.js Setup: Pre-configured with security middleware (Helmet, CORS)
-· Structured Architecture: Organized MVC-like structure
-· Production Ready: Includes error handling and proper logging
-· Customizable: Easy to extend and modify
+· Express.js Setup - Pre-configured with proper middleware and structure
+· MVC Architecture - Organized folder structure for scalability
+· Production Ready - Includes error handling and security best practices
+· Multi-Package Manager - Supports npm, yarn, pnpm, and bun
+· Customizable - Easy to extend and modify generated projects
 
-Generated Files Overview
+Generated Project Includes
 
 app.js
 
-· Express server with security middleware
-· Configurable port (environment variable support)
-· Route integration
-· Server initialization
+· Express server with CORS and Helmet security
+· Configurable port with environment variable support
+· Route integration and middleware setup
 
 package.json
 
 · Basic npm scripts (start, dev)
+· Pre-configured dependencies (Express, CORS, Helmet, etc.)
 · CommonJS module system
-· Pre-configured dependencies
 
-Route & Controller
+Sample API Structure
 
-· Sample root endpoint
-· Error handling
+· Controllers with error handling
+· Route definitions
 · RESTful response structure
 
-Development
+Quick Start
 
-Running the Generated Project
-
-```bash
-cd my-project
-npm install  # if --skip-install was used
-npm run dev  # development with watch mode
-# or
-npm start    # production mode
-```
-
-Testing the API
-
-Once running, test your API:
-
-```bash
-curl http://localhost:3000
-```
-
-Response:
-
-```json
-{"res": "Your API is up and running 🚀"}
-```
+1. Create your project:
+   ```bash
+   zorx create my-app
+   ```
+2. Navigate to project:
+   ```bash
+   cd my-app
+   ```
+3. Start development server:
+   ```bash
+   npm run dev
+   ```
+4. Test your API:
+   ```bash
+   curl http://localhost:3000
+   ```
+   Response: {"res": "Your API is up and running 🚀"}
 
 Requirements
 
 · Node.js 16.0.0 or higher
-· npm or yarn package manager
+· npm, yarn, pnpm, or bun package manager
 · Internet connection (for dependency installation)
 
 Troubleshooting
@@ -169,31 +160,38 @@ Troubleshooting
 Directory already exists:
 
 ```bash
-# Use --force flag to override
 zorx create my-project --force
 ```
 
-Permission errors:
+Permission errors (Unix systems):
 
 ```bash
-# On Unix systems, may need sudo for global installation
 sudo npm install -g zorx-cli
 ```
 
 Installation fails:
 
 · Check internet connection
-· Verify Node.js version (node --version)
+· Verify Node.js version: node --version
 · Try with --skip-install and install dependencies manually
+
+Support
+
+· GitHub: https://github.com/Dannys-notepad/zorx
+· Issues: https://github.com/Dannys-notepad/zorx/issues
 
 Contributing
 
 1. Fork the repository
-2. Create a feature branch (git checkout -b feature/amazing-feature)
-3. Commit your changes (git commit -m 'Add amazing feature')
-4. Push to the branch (git push origin feature/amazing-feature)
+2. Create a feature branch: git checkout -b feature/amazing-feature
+3. Commit your changes: git commit -m 'Add amazing feature'
+4. Push to the branch: git push origin feature/amazing-feature
 5. Open a Pull Request
 
 License
 
-ISC © [Dannysnotepad]
+MIT © Etim Daniel Udeme (@Dannysnotepad)
+
+---
+
+Get started in seconds: npm install -g zorx-cli && zorx create my-project

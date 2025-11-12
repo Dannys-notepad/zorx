@@ -1,7 +1,7 @@
 // Filename: utils/processManager.js
 // Purpose: Centralized process management utilities for handling errors, exits, and signals
-// Author: Your Name (@yourhandle)
-// Date: 2024-01-11
+// Author: Etim Daniel Udeme (@Dannysnotepad)
+
 
 const log = require('./logger');
 

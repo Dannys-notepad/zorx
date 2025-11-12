@@ -1,7 +1,6 @@
 // Filename: utils/logger.js
 // Purpose: Enhanced logging utility with colors, formatting, and log levels for better CLI output
-// Author: Your Name (@yourhandle)
-// Date: 2024-01-11
+// Author: Etim Daniel Udeme (@Dannysnotepad)
 
 // =====================
 // ANSI Color Codes

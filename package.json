@@ -1,25 +1,52 @@
 {
-  "name": "zorx",
+  "name": "zorx-cli",
   "version": "0.1.0",
-  "description": "",
-  "main": "./bin/zorx.js",
+  "description": "A smart CLI tool for rapid project scaffolding and boilerplate code generation",
+  "main": "./src/index.js",
   "bin": {
     "zorx": "./bin/zorx.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests specified\" && exit 0"
   },
-  "keywords": [],
-  "author": "DannysNotepad",
-  "license": "ISC",
+  "keywords": [
+    "cli",
+    "scaffolding",
+    "boilerplate",
+    "generator",
+    "express",
+    "nodejs",
+    "template",
+    "project-setup",
+    "expressjs",
+    "zorx",
+    "zorx-cli"
+  ],
+  "author": "Etim Daniel Udeme <etimdnl41@gmail.com>",
+  "license": "MIT",
   "packageManager": "pnpm@10.20.0",
   "dependencies": {
-    "chalk": "^5.6.2",
     "commander": "^14.0.2",
-    "execa": "^9.6.0",
     "figlet": "^1.9.3",
-    "fs-extra": "^11.3.2",
-    "inquirer": "^12.10.0",
-    "ora": "^9.0.0"
-  }
+    "fs-extra": "^11.3.2"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "core/",
+    "utils/",
+    "templates/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dannys-notepad/zorx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dannys-notepad/zorx/issues"
+  },
+  "homepage": "https://github.com/Dannys-notepad/zorx#readme"
 }

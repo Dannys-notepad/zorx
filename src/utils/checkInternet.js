@@ -1,7 +1,7 @@
-// Filename: utils/hasInternetConnection.js
+// Filename: utils/checkInterneg.js
 // Purpose: Utility function to check for active internet connection by DNS lookup
-// Author: Your Name (@yourhandle)
-// Date: 2024-01-11
+// Author: Etim Daniel Udeme (@Dannysnotepad)
+
 
 const dns = require('dns');
 const { promisify } = require('util');
@@ -9,18 +9,14 @@ const { promisify } = require('util');
 // Convert callback-based dns.lookup to Promise-based for async/await usage
 const dnsLookup = promisify(dns.lookup);
 
-/**
- * Checks if the system has an active internet connection
- * by performing a DNS lookup to google.com
- * @returns {Promise<boolean>} True if internet connection is available, false otherwise
- */
+
 async function hasInternetConnection() {
   try {
     // Attempt DNS lookup - successful resolution indicates internet connectivity
     await dnsLookup('google.com');
     return true;
   } catch (error) {
-    // DNS lookup failed - likely no internet connection or DNS issues
+    // DNS lookup failed - likely no internet connection or DNS issues but since google.com is always active it's definitely no internet connection 
     return false;
   }
 }

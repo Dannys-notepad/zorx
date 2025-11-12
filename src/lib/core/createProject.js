@@ -1,7 +1,6 @@
 // Filename: core/createProject.js
 // Purpose: Main project scaffolding logic - creates directory structure, files, and installs dependencies
 // Author: Etim Daniel Udeme (@Dannysnotepad)
-// Date: 2024-01-11
 
 const fs = require('fs-extra');
 const path = require('path');
