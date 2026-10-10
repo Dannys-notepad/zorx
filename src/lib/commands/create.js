@@ -18,7 +18,7 @@ createCommand
   .option('--ts', 'Use typscript')
   .option('--port <port>', 'Specify custom port', '3000')
   .option('--skip-install', 'Skip dependency installation')
-  .option('--install <packages>', 'Extra packages (comma separated)', val => val.split(','), [])
+  .option('--install <packages>', 'Extra packages (comma separated)', val => val.split(',').map(pkg => pkg.trim()).filter(Boolean), [])
   .option('--pm <package-manager>', '--package-manager <package-manager>', 'Specify node package manager (default: npm)', 'npm')
   .action(async (projectName, options) => {
     try {
