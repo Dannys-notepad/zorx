@@ -7,7 +7,7 @@
     "zorx": "./bin/zorx.js"
   },
   "scripts": {
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "jest"
   },
   "keywords": [
     "cli",
@@ -48,5 +48,8 @@
   "bugs": {
     "url": "https://github.com/Dannys-notepad/zorx/issues"
   },
-  "homepage": "https://github.com/Dannys-notepad/zorx#readme"
+  "homepage": "https://github.com/Dannys-notepad/zorx#readme",
+  "devDependencies": {
+    "jest": "^30.5.2"
+  }
 }
