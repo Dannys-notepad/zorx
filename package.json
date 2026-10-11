@@ -32,11 +32,7 @@
   },
   "files": [
     "bin/",
-    "src/",
-    "core/",
-    "utils/",
-    "templates/",
-    "lib/"
+    "src/"
   ],
   "engines": {
     "node": ">=24.9.0"

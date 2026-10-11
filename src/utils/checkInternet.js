@@ -1,4 +1,4 @@
-// Filename: utils/checkInterneg.js
+// Filename: utils/checkInternet.js
 // Purpose: Utility function to check for active internet connection by DNS lookup
 // Author: Etim Daniel Udeme (@Dannysnotepad)
 
