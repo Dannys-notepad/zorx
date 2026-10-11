@@ -45,7 +45,7 @@ async function createProject(projectName, options) {
     await createDirsJs(projectPath);
     
     log.progress('Creating project files', 2, 5);
-    await createFilesJs();
+    await createFilesJs(projectPath);
     
     log.progress('Writing template files', 3, 5);
     const port = options?.port;
@@ -53,7 +53,7 @@ async function createProject(projectName, options) {
     
     // Initialize package manager
     log.progress('Initializing package manager', 4, 5);
-    await initPackageManager(options?.packageManager);
+    await initPackageManager(options?.packageManager, projectPath);
     
     // Handle package.json
     const packageFileExist = await fs.pathExists(path.join(projectPath, 'package.json'));
@@ -70,7 +70,7 @@ async function createProject(projectName, options) {
         log.warn('No internet connection detected');
         log.info('Install dependencies manually when connected');
       } else {
-        await installPackages(options?.packageManager, options?.install);
+        await installPackages(options?.packageManager, options?.install, projectPath);
       }
     }
     
@@ -100,7 +100,6 @@ async function checkDir(dirName, skipCheck) {
 }
 
 async function createDirsJs(rootDir) {
-  process.chdir(rootDir);
   
   const folders = [
     'src',
@@ -113,14 +112,14 @@ async function createDirsJs(rootDir) {
   ];
   
   for (const folder of folders) {
-    await fs.ensureDir(folder);
+    await fs.ensureDir(path.join(rootDir, folder));
   }
 }
 
-async function createFilesJs() {
-  await fs.ensureFile('app.js');
-  await fs.ensureFile('src/controllers/main.controller.js');
-  await fs.ensureFile('src/routes/main.route.js');
+async function createFilesJs(rootDir) {
+  await fs.ensureFile(path.join(rootDir, 'app.js'));
+  await fs.ensureFile(path.join(rootDir, 'src/controllers/main.controller.js'));
+  await fs.ensureFile(path.join(rootDir, 'src/routes/main.route.js'));
 }
 
 async function writeToFilesJs(rootDir, port) {
@@ -129,16 +128,16 @@ async function writeToFilesJs(rootDir, port) {
   await fs.outputFile(path.join(rootDir, 'src/controllers/main.controller.js'), controllerFileContent());
 }
 
-async function initPackageManager(packageManager = 'npm') {
-  await runCommand(packageManager, ['init', '-y']);
+async function initPackageManager(packageManager = 'npm', rootDir) {
+  await runCommand(packageManager, ['init', '-y'], { cwd: rootDir });
 }
 
-async function installPackages(packageManager = 'npm', extraPackages = []) {
+async function installPackages(packageManager = 'npm', extraPackages = [], rootDir) {
   const defaultPackages = ['express', 'cors', 'helmet', 'dotenv', 'nodemon'];
   const packages = [...defaultPackages, ...extraPackages];
   
   log.info(`Installing ${packages.length} packages...`);
-  await runCommand(packageManager, ['install', ...packages]);
+  await runCommand(packageManager, ['install', ...packages], { cwd: rootDir });
 }
 
 module.exports = createProject;

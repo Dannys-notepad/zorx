@@ -11,9 +11,9 @@ const log = require('./logger');
  * @param {string[]} args - Array of arguments for the command
  * @returns {Promise<void>} Resolves when command completes successfully, rejects on failure
  */
-function runCommand(command, args) {
+function runCommand(command, args, options = {}) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args);
+    const child = spawn(command, args, options);
 
     // Handle standard output
     child.stdout.on('data', (data) => {
