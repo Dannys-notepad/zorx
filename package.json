@@ -24,7 +24,7 @@
   ],
   "author": "Etim Daniel Udeme <etimdnl41@gmail.com>",
   "license": "MIT",
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "yarn@1.22.22",
   "dependencies": {
     "commander": "^14.0.2",
     "figlet": "^1.9.3",
