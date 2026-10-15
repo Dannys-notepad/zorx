@@ -1,3 +1,4 @@
+// reviewed
 // Filename: src/index.js
 // Purpose: Main CLI program configuration - initializes Commander and registers all commands
 // Author: Etim Daniel Udeme (@Dannysnotepad)
