@@ -1,6 +1,9 @@
+// reviewed
 // Filename: src/index.js
 // Purpose: Main CLI program configuration - initializes Commander and registers all commands
 // Author: Etim Daniel Udeme (@Dannysnotepad)
+
+console.log('loaded');
 
 const { Command } = require('commander');
 const createCommand = require('./lib/commands/create');
